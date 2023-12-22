@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background:linear-gradient(-29deg,rgb(123, 166, 15),rgb(141, 196, 230),rgb(208, 255, 0));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #container{
+          width: 40vw;
+          height: 35vh;
+          background: linear-gradient(-35deg,rgba(0, 255, 30, 0.4),rgba(154, 223, 234, 0.4),rgba(195, 255, 0,0.4));
+          box-shadow: 2px 2px 1px grey,-2px -2px 1px gray,2px -2px 1px grey,-2px 2px 1px grey;
+          display: flex;
+          flex-direction:column;
+          justify-content: space-evenly;
+          align-items: center;
+          border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+   <div id="container">
+        <div><h1>Weight converter</h1></div>
+        <div><h2>pounds: <span><input type="text" min="0" max="100" oninput="weight()" id="pou"  value=""></span></h2></div>
+        <div><h3>your weight in kg is : <h2 id="kg" ></h2></h3></div>
+   </div>
+   <script>
+      function weight(){
+        
+       
+          if(document.getElementById("pou").value<=0)
+          {
+            document.getElementById("kg").innerHTML='enter valid details'
+            document.getElementById("kg").style.color='red';
+          }
+          else{
+            document.getElementById("kg").innerText=`${Math.round(document.getElementById("pou").value/2.2)}`+`.00 kg`;
+            document.getElementById("kg").style.color='yellow';
+          }
+        }
+        // function d(){
+        //   document.getElementById("kg").innerText='enter valid details'
+        // }
+       // document.getElementById("kg").innerText='enter valid details'
+   </script>
+</body>
+</html>
