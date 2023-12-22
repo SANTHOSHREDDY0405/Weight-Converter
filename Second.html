@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: skyblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    #container{
+      width: 50dvw;
+      height: 100dvh;
+      background-color: rgba(0, 157, 255, 0.5);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+     
+      
+    }
+    input{
+      width:90%;
+      height: 7vh;
+    }
+    .d{
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div id="container">
+        
+          <div class="d"><h1>Loan Calculator</h1></div>
+          <div class="d"><label for="amount">amount</label><br><input type="number" id="amount" value="20000" oninput="install()"></div>
+          <div class="d"> <label for="intre">interest</label><br><input type="number" id="intre" value="33.56" oninput="install()"></div>
+          <div class="d"><label for="pay">pay</label><br><input type="number" id="pay" value="12" onchange="install()"></div>
+          <div class="d"><h1 style="color: red;text-decoration: underline;">Montly payment : <span id="emi"></span></h1></div>
+        
+        
+    </div>
+    <script>
+      function install(){
+        let loan=document.getElementById("amount").value;
+        let ir=document.getElementById("intre").value;
+        let mon=document.getElementById("pay").value;
+        document.getElementById("emi").innerHTML=`${Math.round((loan*ir*mon)/100)}`+`.00 rs/-`;
+      }
+    </script>
+</body>
+</html>
